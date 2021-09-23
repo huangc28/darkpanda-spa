@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import facepaint from 'facepaint'
 
 import { Large, Medium, Small } from 'Darkpanda/styles/breakpoints'
+import LogoImage from './logo-circle.png'
 
 const mq = facepaint(
   [Small, Medium, Large].map(bp => `@media screen and (min-width: ${bp}px)`)
@@ -10,7 +11,7 @@ const mq = facepaint(
 const absoluteCenterContainer = css `
   position: absolute;
   left: 50%;
-  top: 36%;
+  top: 30%;
 `
 
 const contentContainer = css`
@@ -107,7 +108,8 @@ function LogoContent () {
               height: [59, 113, 150],
               width: [59, 113, 150],
             })}
-            src="https://darkpanda.love/wp-content/uploads/2021/08/logo2@2x.png" 
+            // src="https://darkpanda.love/wp-content/uploads/2021/08/logo2@2x.png" 
+            src={LogoImage}
           />
         </div>
       </div>

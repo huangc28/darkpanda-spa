@@ -16,7 +16,7 @@ const linkContainer = css`
 function DownloadLinks() {
   return (
      <Container css={css`
-       padding: 70px 15px 40px; 
+       padding: 40px 15px 40px; 
      `}>
        <Row>
          <Col sm>

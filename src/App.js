@@ -1,8 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'rsuite/dist/styles/rsuite-default.css';
+import { useRef } from 'react'
 import { css } from '@emotion/react'
-import { Container, Row, Col } from 'react-bootstrap'
+import facepaint from 'facepaint';
 
-import GlobalStyles from 'Darkpanda/styles/global.js';
+import { Small, Medium, Large } from 'Darkpanda/styles/breakpoints'
+import GlobalStyles from 'Darkpanda/styles/global';
 
 import LogoContent from './LogoContent';
 import DownloadLinks from './DownloadLinks';
@@ -30,23 +33,25 @@ const headerStyles = css`
 }
 `
 
-const drawerContainer = css`
+const downloadOption = css`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex: 1;
   color: white;
   cursor: pointer;
+  
+  & > a, a:hover, a:visited, a:link, a:active {
+    font-size: 14px;
+    font-weight: 800;
+    outline-style: none;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
 `
 
 const bodySec = css`
-  height: 886px;
+  height: 800px;
 ` 
-
-const linkContainer = css`
-  display: flex;
-  justify-content: center;
-`
-
 const footerContainer = css`  
   display: flex;
   justify-content: center;
@@ -61,29 +66,57 @@ const footerContainer = css`
   }
 ` 
 
+const mq = facepaint(
+  [Small, Medium, Large].map(bp => `@media screen and (min-width: ${bp}px)`)
+)
+
 function App() {
-  function handleClickLogo(evt) {
+  const handleClickLogo = evt => {
     evt.preventDefault()
     
     console.log('click logo')
   }
+
+  const dlRef = useRef(null)
+  const executeScrollToDL = () => dlRef.current.scrollIntoView()
+
+  const handleClickDownloadNow = evt => {
+    evt.preventDefault()
+    executeScrollToDL()
+  } 
+  
   
   return (
     <>
       <GlobalStyles />
       
       <header css={headerStyles}>
-        {/* Label */}
-        <h1 css={logo}>
+        <h1 css={css`
+            ${logo}
+            ${mq({
+              display: ['none', 'none', 'none'],
+            })}
+          `
+        }>
           <a onClick={handleClickLogo}> 
             DARKPANDA    
           </a>
         </h1>
         
-        {/* drawer */}
-        <div css={drawerContainer}>
-          drawer
+        <div css={css`
+          ${downloadOption}
+        `}>
+          <a onClick={handleClickDownloadNow}> DOWNLOAD NOW! </a>
         </div>
+        
+        <div css={css`
+          flex:1
+          ${
+            mq({
+              display: ['none', 'none', 'block'],
+            })
+          }
+        `} />
       </header>
       
       {/* Content Body */}
@@ -98,7 +131,10 @@ function App() {
         <DownloadLinks />
       </section>
       
-      <footer css={footerContainer}>
+      <footer 
+        css={footerContainer}
+        ref={dlRef}
+      >
         <span>
           Darkpanda © copyright 2021. All Rights Reserved.
         </span>
