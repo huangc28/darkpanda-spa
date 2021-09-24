@@ -73,8 +73,6 @@ const mq = facepaint(
 function App() {
   const handleClickLogo = evt => {
     evt.preventDefault()
-    
-    console.log('click logo')
   }
 
   const dlRef = useRef(null)

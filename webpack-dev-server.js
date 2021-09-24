@@ -15,6 +15,3 @@ const devServer = new WebpackDevServer({
 devServer.startCallback(() => {
     console.log('webpack dev server on http://localhost:3008')
 })
-
-
-

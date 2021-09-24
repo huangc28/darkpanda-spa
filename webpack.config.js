@@ -1,16 +1,19 @@
 const webpack = require('webpack')
 const path = require('path') 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+
+const { NODE_ENV }  = process.env
 
 module.exports = {
-  mode: process.NODE_ENV === 'production' 
-    ? 'production'
-    : 'development',
+  mode: NODE_ENV,
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.bundle.js',
-    publicPath: '/',
+    publicPath: NODE_ENV === 'development' 
+      ? '/' 
+      : './',
   },
   resolve: { 
     extensions: ["*", ".js", ".jsx"],
@@ -38,6 +41,8 @@ module.exports = {
     ]
   },
   plugins: [
+    new WebpackManifestPlugin(),
+
     new HtmlWebpackPlugin({
       title: 'darkpanda',
       template: path.resolve(__dirname, './index.html'),

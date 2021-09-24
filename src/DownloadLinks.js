@@ -20,7 +20,14 @@ function DownloadLinks() {
      `}>
        <Row>
          <Col sm>
-           <div css={linkContainer}>
+           <div css={css`
+            ${linkContainer}
+            ${mq({
+              justifyContent: ['center', 'flex-end', 'flex-end'],
+              paddingRight: [0, 0, 20]
+              
+            })}
+           `}>
              <img src='https://darkpanda.love/wp-content/uploads/2021/08/android-download.png' />
            </div>
          </Col>
@@ -29,6 +36,8 @@ function DownloadLinks() {
              ${linkContainer};
               ${mq({
                 marginTop: [36, 0, 0],
+                justifyContent: ['center', 'flex-start', 'flex-start'],
+                paddingLeft: [0, 0, 20]
               })}
            `}>l
              <img src='https://darkpanda.love/wp-content/uploads/2021/08/apple-download.png' />

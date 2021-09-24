@@ -105,10 +105,9 @@ function LogoContent () {
         `}> 
           <img 
             css={mq({
-              height: [59, 113, 150],
-              width: [59, 113, 150],
+              height: [80, 113, 150],
+              width: [80, 113, 150],
             })}
-            // src="https://darkpanda.love/wp-content/uploads/2021/08/logo2@2x.png" 
             src={LogoImage}
           />
         </div>
