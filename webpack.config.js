@@ -10,7 +10,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.bundle.js',
+    filename: '[name].bundle.js',
     publicPath: NODE_ENV === 'development' 
       ? '/' 
       : './',
@@ -52,4 +52,16 @@ module.exports = {
       process: 'process/browser',
     }),
   ], 
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 }
