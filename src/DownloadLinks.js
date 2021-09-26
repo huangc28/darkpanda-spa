@@ -29,7 +29,7 @@ function DownloadLinks() {
            })}
           `}>
             <a 
-              src='https://darkpanda.love/wp-content/uploads/2021/09/darkpanda.apk'
+              href='https://darkpanda.love/wp-content/uploads/2021/09/darkpanda.apk'
               target='_blank'
             >
               <img src='https://darkpanda.love/wp-content/uploads/2021/08/android-download.png' />
