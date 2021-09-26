@@ -14,6 +14,7 @@ module.exports = {
     publicPath: NODE_ENV === 'development' 
       ? '/' 
       : './',
+    clean: true,
   },
   resolve: { 
     extensions: ["*", ".js", ".jsx"],
