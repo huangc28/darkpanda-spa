@@ -4,12 +4,10 @@ const WebpackDevServer = require('webpack-dev-server')
 const webpackConfig = require('./webpack.config')
 const compiler = Webpack(webpackConfig)
 
-const PORT = 3008
-
 const devServer = new WebpackDevServer({
     bonjour: true,
     compress: true,
-    port: PORT,
+    port: process.env.PORT,
 }, compiler)
 
 devServer.startCallback(() => {
