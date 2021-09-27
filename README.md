@@ -8,3 +8,4 @@
 - [] Fix web to meet best web practices.
 - [] SEO optimization.
 - [] Minimize vendor chunk size.
+- [] Add favicon.

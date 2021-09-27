@@ -25,7 +25,6 @@ function DownloadLinks() {
            ${mq({
              justifyContent: ['center', 'flex-end', 'flex-end'],
              paddingRight: [0, 0, 20]
-             
            })}
           `}>
             <a 
