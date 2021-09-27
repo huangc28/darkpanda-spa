@@ -47,7 +47,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'darkpanda',
       template: path.resolve(__dirname, './index.html'),
-      favicon: path.resolve(__dirname, './src/static/favicons/favicon.ico'),
+      favicon: path.resolve(__dirname, './src/images/favicons/favicon.ico'),
     }),
     
     new webpack.ProvidePlugin({
