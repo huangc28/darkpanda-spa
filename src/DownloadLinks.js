@@ -31,7 +31,7 @@ function DownloadLinks() {
               href='https://darkpanda.love/wp-content/uploads/2021/09/darkpanda.apk'
               target='_blank'
             >
-              <img src='https://darkpanda.love/wp-content/uploads/2021/08/android-download.png' />
+              <img src={require('./images/android-download.png')} />
             </a>
           </div>
         </Col>
@@ -48,7 +48,7 @@ function DownloadLinks() {
                href='https://install.appcenter.ms/orgs/darkpanda/apps/darkpanda-1/distribution_groups/public'
                target='_blank'
              >
-               <img src='https://darkpanda.love/wp-content/uploads/2021/08/apple-download.png' />
+               <img src={require('./images/apple-download.png')} />
              </a>
           </div>
         </Col>

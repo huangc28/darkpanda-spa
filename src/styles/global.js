@@ -1,6 +1,6 @@
 import { Global, css } from '@emotion/react'
 
-const dpBgImgUrl = 'https://darkpanda.love/wp-content/uploads/2021/08/10464-free-download-download-abstract-color-waves-abstract-wallpaper.jpg'
+import dpBgImg from '../images/wallpaper.jpg'   
 
 function GlobalStyle(props) {
   return <Global 
@@ -10,7 +10,7 @@ function GlobalStyle(props) {
       }
     
       body {
-        background: url(${dpBgImgUrl}) no-repeat center center fixed; 
+        background: url(${dpBgImg}) no-repeat center center fixed; 
         background-size: cover;
         height: 100%;
         overflow: hidden;
