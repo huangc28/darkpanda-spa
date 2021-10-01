@@ -9,3 +9,4 @@
 - [] SEO optimization.
 - [] Minimize vendor chunk size.
 - [] Add favicon.
+- [] Download link should be dynamic loaded from appcenter open API. [Get latest release information](https://openapi.appcenter.ms/#/distribute/releases_getLatestByPublicDistributionGroup).

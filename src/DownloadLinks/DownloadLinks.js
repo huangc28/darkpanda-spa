@@ -1,3 +1,5 @@
+import { useEffect, useReducer } from 'react'
+import axios from 'axios' 
 import { Container, Row, Col } from 'react-bootstrap'
 import { css } from '@emotion/react'
 import facepaint from 'facepaint'
@@ -13,7 +15,49 @@ const linkContainer = css`
   justify-content: center;
 `
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_ANDROID_INSTALL_URL':
+      const {
+        payload: {
+          installUrl,
+        },
+      } = action
+      
+      
+      return {
+        ...state,
+        installUrl,
+      } 
+    default:
+      return state
+  }
+}
+
 function DownloadLinks() {
+  const [state, dispatch] = useReducer(reducer, {
+    installUrl: '',
+  })
+   
+  
+  useEffect(() => {
+    axios.get('http://localhost:3002/v1/release/android/latest')
+      .then(resp => {
+        const {
+          data: {
+            install_url: installUrl,
+          },
+        } = resp
+
+        dispatch({
+          type: 'UPDATE_ANDROID_INSTALL_URL',
+          payload: {
+            installUrl,
+          },
+        })
+      })
+  }, [])
+  
   return (
     <Container css={css`
       padding: 40px 15px 40px; 
@@ -28,7 +72,7 @@ function DownloadLinks() {
            })}
           `}>
             <a 
-              href='https://darkpanda.love/wp-content/uploads/2021/09/darkpanda.apk'
+              href={state.installUrl}
               target='_blank'
             >
               <img src={require('./images/android-download.png')} />

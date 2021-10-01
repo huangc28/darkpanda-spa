@@ -1,6 +1,6 @@
 import { Global, css } from '@emotion/react'
 
-import dpBgImg from '../images/wallpaper.jpg'   
+import dpBgImg from 'Darkpanda/images/wallpaper.jpg'
 
 function GlobalStyle(props) {
   return <Global 

@@ -8,7 +8,7 @@ import { Small, Medium, Large } from 'Darkpanda/styles/breakpoints'
 import GlobalStyles from 'Darkpanda/styles/global';
 
 import LogoContent from './LogoContent';
-import DownloadLinks from './DownloadLinks';
+import DownloadLinks from './DownloadLinks/DownloadLinks';
 
 const logo = css`
   letter-spacing: -1.6px;
