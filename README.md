@@ -8,5 +8,6 @@
 - [] Fix web to meet best web practices.
 - [] SEO optimization.
 - [] Minimize vendor chunk size.
-- [] Add favicon.
-- [] Download link should be dynamic loaded from appcenter open API. [Get latest release information](https://openapi.appcenter.ms/#/distribute/releases_getLatestByPublicDistributionGroup).
+- [x] Add favicon.
+- [x] Download link should be dynamically loaded from appcenter open API. [Get latest release information](https://openapi.appcenter.ms/#/distribute/releases_getLatestByPublicDistributionGroup).
+- [] Display spinner when loading latest download link from appcenter open API.
