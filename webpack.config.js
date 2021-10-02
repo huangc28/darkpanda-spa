@@ -2,8 +2,9 @@ const webpack = require('webpack')
 const path = require('path') 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+require('dotenv').config()
 
-const { NODE_ENV }  = process.env
+const { NODE_ENV } = process.env
 
 module.exports = {
   mode: NODE_ENV,
@@ -53,6 +54,11 @@ module.exports = {
     new webpack.ProvidePlugin({
       process: 'process/browser',
     }),
+    
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV', 
+      'SERVER_HOST', 
+    ]),
   ], 
 
   optimization: {
@@ -66,4 +72,5 @@ module.exports = {
       },
     },
   },
+  
 }

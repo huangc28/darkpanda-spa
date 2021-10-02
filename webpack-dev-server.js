@@ -11,5 +11,5 @@ const devServer = new WebpackDevServer({
 }, compiler)
 
 devServer.startCallback(() => {
-    console.log('webpack dev server on http://localhost:3008')
+    console.log(`webpack dev server on http://localhost:${process.env.PORT}`)
 })

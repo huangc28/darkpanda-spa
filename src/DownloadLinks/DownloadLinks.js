@@ -24,7 +24,6 @@ const reducer = (state, action) => {
         },
       } = action
       
-      
       return {
         ...state,
         installUrl,
@@ -40,8 +39,9 @@ function DownloadLinks() {
   })
    
   
+  // Server origin should be placed in .env file.
   useEffect(() => {
-    axios.get('http://localhost:3002/v1/release/android/latest')
+    axios.get(`${process.env.SERVER_HOST}/v1/release/android/latest`)
       .then(resp => {
         const {
           data: {
