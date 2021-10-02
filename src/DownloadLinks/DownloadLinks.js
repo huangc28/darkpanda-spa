@@ -15,6 +15,12 @@ const linkContainer = css`
   justify-content: center;
 `
 
+const notAllowDownload = css`
+  &:hover {
+    cursor: not-allowed;
+  }
+`
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'UPDATE_ANDROID_INSTALL_URL':
@@ -82,18 +88,24 @@ function DownloadLinks() {
         <Col sm>
           <div css={css`
             ${linkContainer};
-             ${mq({
-               marginTop: [36, 0, 0],
-               justifyContent: ['center', 'flex-start', 'flex-start'],
-               paddingLeft: [0, 0, 20]
-             })}
+            ${mq({
+              marginTop: [36, 0, 0],
+              justifyContent: ['center', 'flex-start', 'flex-start'],
+              paddingLeft: [0, 0, 20]
+            })}
           `}>l
-             <a 
-               href='https://install.appcenter.ms/orgs/darkpanda/apps/darkpanda-1/distribution_groups/public'
-               target='_blank'
-             >
-               <img src={require('./images/apple-download.png')} />
-             </a>
+            <a 
+              css={css`${notAllowDownload}`}
+              onClick={evt => {
+                evt.preventDefault()
+                
+                alert('Darkpanda coming up on IOS!')
+              }} 
+              href='https://install.appcenter.ms/orgs/darkpanda/apps/darkpanda-1/distribution_groups/public'
+              target='_blank'
+            >
+              <img src={require('./images/apple-download.png')} />
+            </a>
           </div>
         </Col>
       </Row>
