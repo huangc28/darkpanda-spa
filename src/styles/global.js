@@ -8,13 +8,11 @@ function GlobalStyle(props) {
       html, body {
         overflow-x: hidden;
       }
-    
+      
       body {
-        background: url(${dpBgImg}) no-repeat center center fixed; 
-        background-size: cover;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
+        background-color: rgb(6, 6, 6);
+        box-sizing: border-box;
+        color: rgb(172, 172, 172);
       }
     `}
     
