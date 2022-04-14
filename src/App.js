@@ -9,7 +9,8 @@ import facepaint from 'facepaint'
 import { Small, Medium, Large } from 'Darkpanda/styles/breakpoints'
 import GlobalStyles from 'Darkpanda/styles/global'
 
-import LogoImage from './logo-circle.png'
+import LogoImageCircle from './logo-circle.png'
+import LogoImageLarge from './logo-large.png'
 
 const headerStyles = css`
   max-width: 100%;
@@ -43,6 +44,9 @@ const rightContainer = css`
   justify-content: flex-end;
 `
 
+const mainContainer = css`
+  padding: 70px 0 100px 0;
+`
 
 const mq = facepaint(
   [
@@ -84,7 +88,7 @@ function App() {
                 height: 50px;
                 width: 50px;
               `}
-              src={LogoImage}
+              src={LogoImageCircle}
             />
 
             <Stuff />
@@ -115,6 +119,33 @@ function App() {
           </div>
         </div>
       </header>
+
+      <main css={mainContainer}>
+        <div css={css`
+          display: flex; 
+          justify-content: center;
+        `}>
+          {/* Darkpanda bigger logo  */}
+          <div css={css`
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            height: 300px;
+            width: 300px;
+            border-radius: 50%;
+          `}>
+            <img 
+              css={css`
+                height: 220px;
+                width: 220px;
+              `}
+              src={LogoImageLarge}
+            />
+          </div>
+        </div>
+      </main> 
+
     </>
   )
 }
