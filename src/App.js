@@ -1,13 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'rsuite/dist/rsuite.min.css'
-import Button from 'rsuite/Button'
+import { Grid, Row, Col, Button } from 'rsuite';
 import { useRef } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import facepaint from 'facepaint'
-
-import { Small, Medium, Large } from 'Darkpanda/styles/breakpoints'
-import GlobalStyles from 'Darkpanda/styles/global'
+import Seperator from 'Darkpanda/components/Seperator';
 
 import LogoImageCircle from './logo-circle.png'
 import LogoImageLarge from './logo-large.png'
@@ -45,16 +42,21 @@ const rightContainer = css`
 `
 
 const mainContainer = css`
-  padding: 70px 0 100px 0;
+  padding: 70px 0 50px 0;
 `
 
-const mq = facepaint(
-  [
-    Small, 
-    Medium, 
-    Large
-  ].map(bp => `@media screen and (min-width: ${bp}px)`)
-)
+const gradientTheme = css`
+  background-image: linear-gradient(95deg, rgb(5, 157, 255) 15%, rgb(101, 73, 213) 45%, rgb(227, 63, 161) 75%, rgb(251, 83, 67) 100%);
+  background-clip: text;
+  text-fill-color: transparent;
+`
+
+const description = css`
+  text-align: center;
+  padding: 0 1%;
+  margin-bottom: 30px;
+  font-size: 20px; 
+`
 
 const Stuff = styled.div`
   width: 9px;
@@ -76,7 +78,6 @@ function App() {
   
   return (
     <>
-      <GlobalStyles />
       <header 
         css={headerStyles}
       >
@@ -114,7 +115,7 @@ function App() {
                 color:white;
               `}
             >
-              Download Now
+              立刻下載
             </Button>
           </div>
         </div>
@@ -131,8 +132,8 @@ function App() {
             justify-content: center;
             align-items: center;
             background-color: white;
-            height: 300px;
-            width: 300px;
+            height: 280px;
+            width: 280px;
             border-radius: 50%;
           `}>
             <img 
@@ -144,8 +145,75 @@ function App() {
             />
           </div>
         </div>
+
+        {/* Slogan text */}
+        <h1 css={css`
+          width: 100%;
+          margin: 20px 0 25px 0;
+          display: inline-block;
+          text-align: center;
+          color: white;
+        `}>
+          <span css={gradientTheme} > 男生 </span> & 
+          <span css={gradientTheme}> 女生 </span>
+          <br/> 快來速約吧
+        </h1>
+
+        <p css={description}>
+          不囉唆，馬上相遇吧
+        </p>
+
+        <Seperator />
+
+        
+        <section>
+          <Grid fluid>
+            <Row>
+              <Col xs={2} />
+              <Col xs={20}>
+                <h2>
+                  下載 APP! 
+                </h2>
+              </Col>
+              <Col xs={2} />
+            </Row>
+          </Grid>        
+        </section> 
       </main> 
 
+      <footer>
+        <Grid fluid>
+          <Row>
+            <Col xs={2} />
+            <Col xs={20}>
+              <nav css={css`
+                ol {
+                  list-style-type: none;
+                  padding-left: 0;
+                }
+
+                ol > li {
+                  display: inline-block;
+                  padding: 10px;
+                } 
+              `}>
+                <ol>
+                  <li>
+                    <a> Privacy Policy </a>
+                  </li>
+                  <li>
+                    <a> Terms And Condition </a>
+                  </li>
+                  <li>
+                    <a> Contact Us </a>
+                  </li>
+                </ol>
+              </nav>
+            </Col> 
+            <Col xs={2} />
+          </Row>
+        </Grid>
+      </footer>
     </>
   )
 }

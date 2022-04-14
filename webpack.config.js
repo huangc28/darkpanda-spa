@@ -21,7 +21,6 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"],
     alias: {
       Darkpanda: path.resolve(__dirname, 'src')
-
     }
   },
   module: {
