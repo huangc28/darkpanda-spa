@@ -181,13 +181,18 @@ function App() {
         </section> 
       </main> 
 
-      <footer>
+      <footer css={css`
+        padding: 20px 0;
+        border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+        background: rgba(0, 0, 0, 0.3);
+      `}>
         <Grid fluid>
           <Row>
             <Col xs={2} />
             <Col xs={20}>
               <nav css={css`
                 ol {
+                  margin: 0;
                   list-style-type: none;
                   padding-left: 0;
                 }
@@ -195,17 +200,26 @@ function App() {
                 ol > li {
                   display: inline-block;
                   padding: 10px;
+                  margin-right: 3px;
+                } 
+
+                ol > li:hover {
+                  cursor: pointer;
+                }
+
+                ol > li > a {
+                  font-size: 14px;
                 } 
               `}>
                 <ol>
                   <li>
-                    <a> Privacy Policy </a>
+                    <a> 隱私政策 </a>
                   </li>
                   <li>
-                    <a> Terms And Condition </a>
+                    <a>  條款 </a>
                   </li>
                   <li>
-                    <a> Contact Us </a>
+                    <a> 聯絡我們 </a>
                   </li>
                 </ol>
               </nav>
