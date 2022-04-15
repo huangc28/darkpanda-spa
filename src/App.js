@@ -1,10 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'rsuite/dist/rsuite.min.css'
-import { Grid, Row, Col, Button } from 'rsuite';
+import { Grid, Row, Col, Button } from 'rsuite'
 import { useRef } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import Seperator from 'Darkpanda/components/Seperator';
+
+import Seperator from 'Darkpanda/components/Seperator'
+import Footer from 'Darkpanda/components/Footer'
 
 import LogoImageCircle from './logo-circle.png'
 import LogoImageLarge from './logo-large.png'
@@ -164,70 +166,47 @@ function App() {
         </p>
 
         <Seperator />
-
         
+        {/* Step demonstration pannel */}
+        <section>
+
+        </section>
+
         <section>
           <Grid fluid>
             <Row>
-              <Col xs={2} />
-              <Col xs={20}>
-                <h2>
-                  下載 APP! 
-                </h2>
+              <Col xs={20} xsPush={2}>
+                <div css={css`
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                `}>
+                  <h2 css={css`flex-grow: 1`}>
+                    下載 APP! 
+                  </h2>
+                  <div css={css`flex-grow: 3`}> 
+                    <a 
+                      href='https://play.google.com/store/apps/details?id=com.darkpanda.app&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
+                    >
+                      <img 
+                        css={css`
+                          width: 176px;
+                          height: 80px;
+                        `}
+                        alt='Get it on Google Play' 
+                        src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'
+                      />
+                    </a>
+                  </div>
+                  <div css={css`flex-grow: 6`} />
+                </div>
               </Col>
-              <Col xs={2} />
             </Row>
           </Grid>        
         </section> 
       </main> 
-
-      <footer css={css`
-        padding: 20px 0;
-        border-top: 1px solid hsla(0, 0%, 100%, 0.1);
-        background: rgba(0, 0, 0, 0.3);
-      `}>
-        <Grid fluid>
-          <Row>
-            <Col xs={2} />
-            <Col xs={20}>
-              <nav css={css`
-                ol {
-                  margin: 0;
-                  list-style-type: none;
-                  padding-left: 0;
-                }
-
-                ol > li {
-                  display: inline-block;
-                  padding: 10px;
-                  margin-right: 3px;
-                } 
-
-                ol > li:hover {
-                  cursor: pointer;
-                }
-
-                ol > li > a {
-                  font-size: 14px;
-                } 
-              `}>
-                <ol>
-                  <li>
-                    <a> 隱私政策 </a>
-                  </li>
-                  <li>
-                    <a>  條款 </a>
-                  </li>
-                  <li>
-                    <a> 聯絡我們 </a>
-                  </li>
-                </ol>
-              </nav>
-            </Col> 
-            <Col xs={2} />
-          </Row>
-        </Grid>
-      </footer>
+      
+      <Footer />
     </>
   )
 }
