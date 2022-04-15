@@ -7,6 +7,7 @@ import styled from '@emotion/styled'
 
 import Seperator from 'Darkpanda/components/Seperator'
 import Footer from 'Darkpanda/components/Footer'
+import StepTabs from 'Darkpanda/components/StepTabs'
 
 import LogoImageCircle from './logo-circle.png'
 import LogoImageLarge from './logo-large.png'
@@ -169,10 +170,35 @@ function App() {
         
         {/* Step demonstration pannel */}
         <section>
+          <Grid fluid>
+            <Row>
+              <Col xs={20} xsPush={2}>
+                <div css={css`
+                  display: flex;
+                  justify-content: center;
+                `}>
+                  <h2>
+                    快速認識朋友
+                  </h2>
+                </div>
+              </Col>
+            </Row>  
 
+            {/* Steps Tab Pannel */}
+            <Row>
+              <Col xs={20} xsPush={2}>
+                <StepTabs />
+              </Col>
+            </Row>
+          </Grid>
         </section>
 
-        <section>
+        <section
+          css={css`
+            margin: 1rem 0;
+          `}
+        
+        >
           <Grid fluid>
             <Row>
               <Col xs={20} xsPush={2}>
