@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { css } from '@emotion/react'
-import { Grid, Row, Col } from 'rsuite'
+import { Grid, Row } from 'rsuite'
 
 import StepContent from './components/StepContent'
+
+import inquiryChatPNG from './images/inquiry_chat.png'
+import pickupInquiryPNG from './images/pickup_inquiry.png'
+import girlsPNG from './images/girls.png'
 
 const tabButtonPanels = css`
   ul {
@@ -40,32 +44,6 @@ const tabContentInner = css`
   padding: 35px;
 ` 
 
-const cardBox = css`
-  padding: 0 5px;
-  height: 100%;
-`
-const card = css`
-  box-shadow: 4px 4px 20px 20px rgba(0, 0, 0, 0.01);
-  background-color: #0f0f11;
-  padding: 20px;
-  border-radius: 5px;
-  height: 100%;
-  
-  div {
-    padding-top: 20px;
-  }
-  
-  div > h4 {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  div > p {
-    font-size: 18px;
-    line-height: 1.67;
-  }
-`
-
 const displayNone = css` 
   display: none;
 `
@@ -81,24 +59,26 @@ const TabLabels = {
 const TabContents = {
   [MaleTab]: [
     {
-      image: 'https://via.placeholder.com/590x332.png',
+      image: girlsPNG,
       label: '提出需求',
-      description: '',
+      description: '透過隨機配對或指定配對，提出您想要的相遇條件，等待對您有興趣的女生',
     },
     {
-      image: 'https://via.placeholder.com/590x332.png',
+      image: pickupInquiryPNG,
       label: '女生有興趣詢問',
+      description: '女生對你的需求有興趣。跟她聊聊吧',
     },
     {
-      image: 'https://via.placeholder.com/590x332.png',
+      image: inquiryChatPNG,
       label: '聊天並相遇吧',
+      description: '雙方約個時間地點，準備與他相遇吧',
     },
   ],
   [FemaleTab]: [
     {
       image: 'https://via.placeholder.com/590x332.png',
       label: '收到需求邀請',
-      description: '有男生對你有興趣喔! 看看他的需求吧。',
+      description: '有男生對你有興趣喔! 看看他的需求吧',
     },
     {
       image: 'https://via.placeholder.com/590x332.png',
@@ -108,7 +88,7 @@ const TabContents = {
     {
       image: 'https://via.placeholder.com/590x332.png',
       label: '準備相遇吧',
-      description: '看樣子你們很合得來。約個時間地點，準備跟他相遇吧！',
+      description: '看樣子你們很合得來。約個時間地點，準備跟她相遇吧！',
                               
     },
   ],

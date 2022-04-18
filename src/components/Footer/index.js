@@ -40,7 +40,7 @@ function Footer() {
                   <a> 隱私政策 </a>
                 </li>
                 <li>
-                  <a>  條款 </a>
+                  <a> 條款 </a>
                 </li>
                 <li>
                   <a> 聯絡我們 </a>
