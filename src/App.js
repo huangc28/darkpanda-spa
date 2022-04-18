@@ -193,6 +193,8 @@ function App() {
           </Grid>
         </section>
 
+        <Seperator />
+
         <section
           css={css`
             margin: 1rem 0;

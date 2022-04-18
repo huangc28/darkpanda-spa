@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { css } from '@emotion/react'
 import { Grid, Row, Col } from 'rsuite'
+
+import StepContent from './components/StepContent'
 
 const tabButtonPanels = css`
   ul {
@@ -63,28 +66,94 @@ const card = css`
   }
 `
 
+const displayNone = css` 
+  display: none;
+`
+
+const MaleTab = 0
+const FemaleTab = 1
+
+const TabLabels = {
+  [FemaleTab]: '女生',
+  [MaleTab]: '男生',
+}
+
+const TabContents = {
+  [MaleTab]: [
+    {
+      image: 'https://via.placeholder.com/590x332.png',
+      label: '提出需求',
+      description: '',
+    },
+    {
+      image: 'https://via.placeholder.com/590x332.png',
+      label: '女生有興趣詢問',
+    },
+    {
+      image: 'https://via.placeholder.com/590x332.png',
+      label: '聊天並相遇吧',
+    },
+  ],
+  [FemaleTab]: [
+    {
+      image: 'https://via.placeholder.com/590x332.png',
+      label: '收到需求邀請',
+      description: '有男生對你有興趣喔! 看看他的需求吧。',
+    },
+    {
+      image: 'https://via.placeholder.com/590x332.png',
+      label: '開始聊天',
+      description: '開始跟男生聊天吧',
+    },
+    {
+      image: 'https://via.placeholder.com/590x332.png',
+      label: '準備相遇吧',
+      description: '看樣子你們很合得來。約個時間地點，準備跟他相遇吧！',
+                              
+    },
+  ],
+}
+
+// - Each tab content should have it's own index. When press on tab button panel, display that content.
 function StepTabs() {
+  const [tab, setStep] = useState(FemaleTab);
+  
+  const handleChangeTab = (tabIdx) => {
+    setStep(tabIdx)
+  }
+
   return (
     <div>
       <div css={tabButtonPanels}>
         <ul>
-          <li css={css`
-            ${tabItem}
-            ${selected}`
-          }> 
-            <div>
-              <button>
-                女生 
-              </button>
-            </div>
-          </li> 
-          <li css={tabItem}> 
-            <div>
-              <button>
-                男生 
-              </button>
-            </div>
-          </li>
+          {
+            [
+              FemaleTab,
+              MaleTab, 
+            ].map((currTab, key) => {
+              return(
+                <li 
+                  key={key}
+                  css={css`
+                    ${tabItem}
+                    
+                    ${
+                      currTab === tab
+                        ? selected
+                        : ''
+                    }
+                  `}
+                  onClick={() => handleChangeTab(currTab)}
+                > 
+                  <div>
+                    <button>
+                       { TabLabels[currTab] }
+                    </button>
+                  </div>
+                </li> 
+              )
+            })
+          }
         </ul>
       </div>
       
@@ -92,77 +161,37 @@ function StepTabs() {
       <div css={tabContentPannel}>
         <div css={tabContentInner}> 
           <Grid fluid>
-            <Row>
-              <Col xs={24} sm={8}>
-                <div css={cardBox}>
-                  <div css={card}>
-                    <img 
-                      css={css`
-                        max-width: 100%;
-                      `}
-                      src='https://via.placeholder.com/590x332.png'
-                    />
-                    
-                    <div>
-                      <h4> 
-                        收到需求邀請
-                      </h4>
-                      
-                      <p>
-                        有男生對你有興趣喔! 看看他的需求吧。
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-
-              <Col xs={24} sm={8}>
-                <div css={cardBox}>
-                  <div css={card}>
-                    <img 
-                      css={css`
-                        max-width: 100%;
-                      `}
-                      src='https://via.placeholder.com/590x332.png'
-                    />
-
-                    <div>
-                      <h4> 
-                        開始聊天
-                      </h4>
-
-                      <p>
-                        開始跟男生聊聊吧。
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-
-              <Col xs={24} sm={8}>
-                <div css={cardBox}>
-                  <div css={card}>
-                    <img 
-                      css={css`
-                        max-width: 100%;
-                      `}
-                      src='https://via.placeholder.com/590x332.png'
-                    />
-                    
-                    <div>
-                      <h4> 
-                        準備相遇吧
-                      </h4>
-
-                      <p>
-                        看樣子你們很合得來。約個時間地點，準備跟他相遇吧！
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-
+            {
+              [
+                FemaleTab,
+                MaleTab, 
+              ].map((currTab, idx) => {
+                const stepContent = TabContents[currTab]
+                  return (
+                    <Row
+                      key={idx}
+                      css={
+                        tab !== currTab 
+                          ? displayNone 
+                          : '' 
+                      }
+                      xs={24}   
+                      sm={8}
+                    > 
+                      {
+                        stepContent.map((content, idx) => (
+                          <StepContent 
+                            key={idx}
+                            image={content.image}  
+                            label={content.label}
+                            description={content.description}
+                          />
+                        ))
+                      }
+                    </Row>
+                  )
+              })
+            }
           </Grid>
         </div>
       </div>
