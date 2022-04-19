@@ -1,6 +1,7 @@
 import { Grid, Row, Col } from 'rsuite'
 import { css } from '@emotion/react'
 
+
 const footerStyles = css`
   padding: 20px 0;
   border-top: 1px solid hsla(0, 0%, 100%, 0.1);
