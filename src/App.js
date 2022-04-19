@@ -9,8 +9,8 @@ import Seperator from 'Darkpanda/components/Seperator'
 import Footer from 'Darkpanda/components/Footer'
 import StepTabs from 'Darkpanda/components/StepTabs'
 
-import LogoImageCircle from './logo-circle.png'
-import LogoImageLarge from './logo-large.png'
+import LogoImageCircle from './images/logo-circle.png'
+import LogoWhiteSVG from './images/logo_white.svg'
 
 const headerStyles = css`
   max-width: 100%;
@@ -66,10 +66,6 @@ const Stuff = styled.div`
 `
 
 function App() {
-  const handleClickLogo = evt => {
-    evt.preventDefault()
-  }
-
   const dlRef = useRef(null)
   const executeScrollToDL = () => dlRef.current.scrollIntoView()
 
@@ -117,6 +113,7 @@ function App() {
                 background-image:linear-gradient(95deg, rgb(5, 157, 255) 15%, rgb(101, 73, 213) 45%, rgb(227, 63, 161) 75%, rgb(251, 83, 67) 100%);
                 color:white;
               `}
+              onClick={handleClickDownloadNow}
             >
               立刻下載
             </Button>
@@ -134,7 +131,6 @@ function App() {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: white;
             height: 280px;
             width: 280px;
             border-radius: 50%;
@@ -144,7 +140,7 @@ function App() {
                 height: 220px;
                 width: 220px;
               `}
-              src={LogoImageLarge}
+              src={LogoWhiteSVG}
             />
           </div>
         </div>
@@ -209,7 +205,7 @@ function App() {
                   align-items: center;
                   justify-content: flex-start;
                 `}>
-                  <h2 css={css`flex-grow: 1`}>
+                  <h2 css={css`flex-grow: 1`} ref={dlRef}>
                     下載 APP! 
                   </h2>
                   <div css={css`flex-grow: 3`}> 
