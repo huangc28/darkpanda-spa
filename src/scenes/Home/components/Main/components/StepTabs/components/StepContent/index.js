@@ -38,8 +38,8 @@ function StepContent(props) {
         <div css={card}>
           <img 
             css={css`
-              height: 574px;
-              width: 288px
+              height: 490px;
+              width: 100% 
             `}
             src={props.image}
           />
