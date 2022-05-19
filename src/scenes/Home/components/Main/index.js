@@ -5,6 +5,7 @@ import Seperator from 'Darkpanda/components/Seperator'
 
 import LogoWhiteSVG from './images/logo_white.svg'
 import StepTabs from './components/StepTabs'
+import AppScreen from './images/app_screen_iphone.png'
 
 const gradientTheme = css`
   background-image: linear-gradient(95deg, rgb(5, 157, 255) 15%, rgb(101, 73, 213) 45%, rgb(227, 63, 161) 75%, rgb(251, 83, 67) 100%);
@@ -76,6 +77,7 @@ function Main({ innerRef }) {
                 <div css={css`
                   display: flex;
                   justify-content: center;
+                  color: white;
                 `}>
                   <h2>
                     快速認識朋友
@@ -91,6 +93,48 @@ function Main({ innerRef }) {
               </Col>
             </Row>
           </Grid>
+        </section>
+
+        <Seperator />
+
+        <section
+          css={css`
+            margin: 1rem 0;
+          `}
+        
+        >
+            <h1 css={css`
+            width: 100%;
+            margin: 20px 0 25px 0;
+            display: inline-block;
+            text-align: center;
+            color: white;
+            `}>
+                全台最快配對的交友軟件
+            </h1>
+
+            <div css={css`
+            display: flex; 
+            justify-content: center;
+            `}>
+
+            {/* Darkpanda iphone screen  */}
+            <div css={css`
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 750px;
+                border-radius: 50%;
+            `}>
+                <img 
+                css={css`
+                    height: 700px;
+                    width: 900px;
+                `}
+                src={AppScreen}
+                />
+            </div>
+            </div>        
         </section>
 
         <Seperator />

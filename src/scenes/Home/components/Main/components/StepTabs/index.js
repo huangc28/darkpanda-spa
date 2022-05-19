@@ -7,6 +7,12 @@ import StepContent from './components/StepContent'
 import inquiryChatPNG from './images/inquiry_chat.png'
 import pickupInquiryPNG from './images/pickup_inquiry.png'
 import girlsPNG from './images/girls.png'
+import receivetPNG from './images/receive.png'
+import chatPNG from './images/chating.png'
+import meetupFemalePNG from './images/meetup_female.png'
+import requestePNG from './images/request.png'
+import interestedePNG from './images/interested.png'
+import meetupMalePNG from './images/meetup_male.png'
 
 const tabButtonPanels = css`
   ul {
@@ -59,34 +65,34 @@ const TabLabels = {
 const TabContents = {
   [MaleTab]: [
     {
-      image: girlsPNG,
+      image: requestePNG,
       label: '提出需求',
       description: '透過隨機配對或指定配對，提出您想要的相遇條件，等待對您有興趣的女生',
     },
     {
-      image: pickupInquiryPNG,
+      image: interestedePNG,
       label: '女生有興趣詢問',
       description: '女生對你的需求有興趣。跟她聊聊吧',
     },
     {
-      image: inquiryChatPNG,
+      image: meetupMalePNG,
       label: '聊天並相遇吧',
       description: '雙方約個時間地點，準備與他相遇吧',
     },
   ],
   [FemaleTab]: [
     {
-      image: 'https://via.placeholder.com/590x332.png',
+      image: receivetPNG,
       label: '收到需求邀請',
       description: '有男生對你有興趣喔! 看看他的需求吧',
     },
     {
-      image: 'https://via.placeholder.com/590x332.png',
+      image: chatPNG,
       label: '開始聊天',
       description: '開始跟男生聊天吧',
     },
     {
-      image: 'https://via.placeholder.com/590x332.png',
+      image: meetupFemalePNG,
       label: '準備相遇吧',
       description: '看樣子你們很合得來。約個時間地點，準備跟她相遇吧！',
                               

@@ -64,10 +64,11 @@ function Header({ onClickDownload }) {
                 color: 'white',  
                 marginBottom: 0,
                 whiteSpace: 'nowrap',
-                lineHeight: 0.9,
+                lineHeight: 0.9
               `}
             >
-              DARKPANDA 
+             <span css={css`
+                font-family: 'Chalkboard SE' !important`}>DARKPANDA</span>
             </h3>
           </div>
 
