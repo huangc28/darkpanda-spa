@@ -45,7 +45,7 @@ module.exports = {
     new WebpackManifestPlugin(),
 
     new HtmlWebpackPlugin({
-      title: 'darkpanda',
+      title: 'Darkpanda',
       template: path.resolve(__dirname, './index.html'),
       favicon: path.resolve(__dirname, './src/static/favicons/favicon.ico'),
     }),
